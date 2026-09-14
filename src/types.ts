@@ -1,9 +1,12 @@
+export type Category = "foundations" | "pcb-design" | "firmware" | "sensors";
+
 /**
  * One node in the skills tree, e.g. "Soldering Skills" or "PCB Layout".
  */
 export interface SkillNode {
   id: string;
   title: string;
+  category: Category;
   description: string;
   /** IDs of the SkillNodes that must be completed before this one unlocks */
   prerequisiteIds: string[];
