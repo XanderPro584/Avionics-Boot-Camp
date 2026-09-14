@@ -1,6 +1,7 @@
 import { ReactFlow, Background, Controls } from "@xyflow/react";
-import type { Edge, Node } from "@xyflow/react";
+import type { Edge, Node, NodeMouseHandler } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
+import { useNavigate } from "react-router-dom";
 import { skillTree } from "../data/skillTree";
 import { SkillTreeNode } from "./SkillTreeNode";
 import type { SkillTreeNodeData } from "./SkillTreeNode";
@@ -54,6 +55,14 @@ const edges: Edge[] = skillTree.flatMap((skill) =>
 );
 
 export function SkillTree() {
+  const navigate = useNavigate();
+
+  // react-flow calls this with the click event and the node that was
+  // clicked — we only care about the node's id, which is the skill's id.
+  const handleNodeClick: NodeMouseHandler = (_event, node) => {
+    navigate(`/lesson/${node.id}`);
+  };
+
   return (
     <div className="skill-tree">
       <ReactFlow
@@ -63,6 +72,7 @@ export function SkillTree() {
         fitView
         nodesDraggable={false}
         nodesConnectable={false}
+        onNodeClick={handleNodeClick}
       >
         <Background />
         <Controls showInteractive={false} />
