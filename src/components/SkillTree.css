@@ -1,0 +1,115 @@
+.skill-tree {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.skill-tree__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #2a2a35;
+  background: #14141a;
+}
+
+.legend__swatch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: #cfcfd8;
+}
+
+.legend__swatch::before {
+  content: "";
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+}
+
+.legend__swatch--foundations::before {
+  background: #6b7280;
+}
+.legend__swatch--pcb-design::before {
+  background: #3b82f6;
+}
+.legend__swatch--firmware::before {
+  background: #f59e0b;
+}
+.legend__swatch--sensors::before {
+  background: #10b981;
+}
+
+.skill-tree__canvas {
+  flex: 1;
+  min-height: 0;
+}
+
+.skill-node {
+  pointer-events: auto;
+  min-width: 170px;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  border: 2px solid #3a3a45;
+  background: #1c1c24;
+  color: #f1f1f4;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.skill-node:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.skill-node__title {
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 0.2rem;
+}
+
+.skill-node__status {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+/* Category accents (left border) */
+.skill-node--foundations {
+  border-left: 6px solid #6b7280;
+}
+.skill-node--pcb-design {
+  border-left: 6px solid #3b82f6;
+}
+.skill-node--firmware {
+  border-left: 6px solid #f59e0b;
+}
+.skill-node--sensors {
+  border-left: 6px solid #10b981;
+}
+
+/* Progress status fill */
+.skill-node--not-started {
+  background: #1c1c24;
+}
+.skill-node--in-progress {
+  background: #2a2410;
+  border-color: #b58a1a;
+}
+.skill-node--complete {
+  background: #10281c;
+  border-color: #1f9d5c;
+}
+
+.skill-node--locked {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: grayscale(0.6);
+}
+
+.skill-node--locked:hover {
+  transform: none;
+  box-shadow: none;
+}
