@@ -1,0 +1,31 @@
+.skill-tree {
+  width: 100%;
+  height: 100vh;
+}
+
+.skill-node {
+  min-width: 160px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+}
+
+.skill-node__title {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.skill-node--foundations {
+  border-left: 6px solid #6b7280;
+}
+.skill-node--pcb-design {
+  border-left: 6px solid #3b82f6;
+}
+.skill-node--firmware {
+  border-left: 6px solid #f59e0b;
+}
+.skill-node--sensors {
+  border-left: 6px solid #10b981;
+}
