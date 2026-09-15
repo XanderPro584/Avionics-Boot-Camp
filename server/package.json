@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/index.ts",
+    "seed": "tsx src/seed.ts"
   },
   "dependencies": {
     "express": "^4.21.2"

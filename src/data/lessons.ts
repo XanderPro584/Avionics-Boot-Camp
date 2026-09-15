@@ -1,5 +1,5 @@
-import type { Lesson } from "../types";
-import { skillTree } from "./skillTree";
+import type { Lesson } from "../types.js";
+import { skillTree } from "./skillTree.js";
 
 // One placeholder Lesson per skill, generated from skillTree so we don't
 // have to hand-write 17 near-identical entries. Real lesson content

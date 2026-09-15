@@ -1,4 +1,4 @@
-import type { SkillNode } from "../types";
+import type { SkillNode } from "../types.js";
 
 // Every track starts only after all four Foundations skills are done.
 const FOUNDATION_IDS = [
