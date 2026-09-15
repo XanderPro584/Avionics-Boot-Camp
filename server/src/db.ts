@@ -1,11 +1,14 @@
-import Database from "better-sqlite3";
+import { DatabaseSync } from "node:sqlite";
 
-// One file on disk holds the whole database. better-sqlite3 creates it
+// One file on disk holds the whole database. node:sqlite (built into
+// Node itself — no separate package, no native compilation) creates it
 // automatically the first time this runs.
-const db = new Database("data.sqlite");
+const db = new DatabaseSync("data.sqlite");
 
 // SQLite doesn't enforce foreign keys unless you explicitly turn it on.
-db.pragma("foreign_keys = ON");
+// node:sqlite has no .pragma() helper, so this runs through .exec()
+// like any other statement.
+db.exec("PRAGMA foreign_keys = ON");
 
 // IF NOT EXISTS makes this safe to run every time the server starts —
 // after the first run, these statements do nothing.
